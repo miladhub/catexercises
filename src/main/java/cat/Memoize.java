@@ -5,12 +5,11 @@ import java.util.Map;
 import java.util.function.Function;
 
 public class Memoize {
-    private final Map<Object, Object> values = new HashMap<>();
-
-    public <A,B> Function<A,B> memoize(Function<A,B> f) {
+    public static <A,B> Function<A,B> memoize(Function<A,B> f) {
+        Map<A, B> values = new HashMap<>();
         return a -> {
             if (values.containsKey(a)) {
-                return (B) values.get(a);
+                return values.get(a);
             } else {
                 B b = f.apply(a);
                 values.put(a, b);
@@ -25,7 +24,7 @@ public class Memoize {
         System.out.println(lengthy(42));
         System.out.println(lengthy(42));
         System.out.println("Normal: " + (System.currentTimeMillis() - t1));
-        Function<Integer, Integer> memoized = new Memoize().memoize(Memoize::lengthy);
+        Function<Integer, Integer> memoized = memoize(Memoize::lengthy);
 
         t1 = System.currentTimeMillis();
         System.out.println(memoized.apply(42));
@@ -43,4 +42,11 @@ public class Memoize {
         return x + 1;
     }
 
+    public static Integer random(Void v) {
+      return new java.util.Random().nextInt();
+    }
+
+    public static Integer randomSeed(Integer seed) {
+      return new java.util.Random(seed).nextInt();
+    }
 }
