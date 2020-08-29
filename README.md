@@ -110,4 +110,4 @@ The functions are
 
 ## 6
 
-See `chap2_ex6.png`.
+See `ch2_ex6.png`.
