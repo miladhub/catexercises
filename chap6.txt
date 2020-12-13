@@ -1,0 +1,26 @@
+1
+
+Maybe a = Either () a
+
+r (Nothing) = Left ()
+r (Just a)  = Right a
+
+l (Left ()) = Nothing
+l (Right a) = Just a
+
+2
+
+Java: cat.ch6
+Haskell: Chap6.hs
+
+5
+
+a + a = 2 * a
+
+Either a a = (Bool, a)
+
+r (Left a) = (True, a)
+r (Right a) = (False, a)
+
+l (True, a) = Left a
+l (False, a) = Right a

@@ -1,4 +1,4 @@
-package cat;
+package cat.ch5;
 
 import java.util.function.Function;
 

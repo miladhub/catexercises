@@ -52,7 +52,7 @@ No.
     jshell> import cat.*
 
     jshell> var f = Memoize.memoize(Memoize::random)
-    f ==> cat.Memoize$$Lambda$28/0x0000000800b7a040@5910e440
+    f ==> cat.ch5.Memoize$$Lambda$28/0x0000000800b7a040@5910e440
     
     ...
     
@@ -70,7 +70,7 @@ No.
 No.
 
     jshell> var f = Memoize.memoize(Memoize::randomSeed)
-    f ==> cat.Memoize$$Lambda$28/0x0000000800b7a040@5910e440
+    f ==> cat.ch5.Memoize$$Lambda$28/0x0000000800b7a040@5910e440
 
     jshell> f.apply(42)
     $3 ==> -1170105035
