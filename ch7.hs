@@ -38,6 +38,20 @@ x :: r -> a
 
 fmap (f . g) x = (f . g) . x = f . g . x
 (fmap f) . (fmap g) $ x = (fmap f) . (g . x) = f . g . x
+
+List:
+
+fmap id = id
+
+fmap id [] = []
+fmap id [h:t] = [(id h):fmap t] = [h: fmap t] = [h:t]
+
+fmap (f.g) = (fmap f) . (fmap g)
+
+fmap (f.g) [] = (fmap f) . (fmap g) $ [] = (fmap f) $ (fmap g) [] = (fmap f) [] = []
+fmap (f.g) [h:t] = (fmap f) $ (fmap g) [h:t] = (fmap f) $ [g h: fmap g t] =
+  [f.g h: (fmap f) (fmap g) t]
+
 -}
 
 
