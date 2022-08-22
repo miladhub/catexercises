@@ -1,0 +1,27 @@
+Monoid
+
+u: m x m -> m
+n: m
+
+In sets
+
+u: m x m -> m
+n: () -> m
+
+  n: picks an element in m
+  () is the unit element for product
+
+Monad
+
+Join: T(T a) -> T a
+Return: a -> T a == Id a -> T a
+
+Categorical monoid
+
+u: T . T -> T
+n: I -> M
+
+  I is the unit element for functor composition
+
+A monad is a monoid in the category of end functors
+where morphisms are natural transformations
