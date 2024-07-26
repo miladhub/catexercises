@@ -1,0 +1,13 @@
+data StreamF e a = StreamF e a
+
+coalg :: a -> StreamF e a
+
+ana coalg :: a -> Fix (StreamF e)
+
+Fix( Stream e (Fix (Stream e ...) ) )
+
+ana :: Functor f => (a -> f a) -> a -> Fix f
+ana coalg = Fix . fmap (ana coalg) . coalg
+
+Fix f = Fix (f (Fix f) )
+Fix :: f (Fix f) -> Fix f

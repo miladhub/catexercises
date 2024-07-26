@@ -1,0 +1,26 @@
+data Fix f = Fix (f (Fix f) )
+Fix :: f (Fix f) -> Fix f
+unFix :: Fix f -> f (Fix f)
+
+Fix ZeroF :: Fix (NatF (Fix NatF)) = Fix (NatF Nat)
+Fix (SuccF (NatF Nat)) :: Fix (NatF (Fix NatF)) = Fix (NatF Nat)
+
+data NatF a = ZeroF | SuccF a
+
+newtype Nat = Fix NatF =(Lambek)= NatF (Fix NatF)
+
+data Nat = Zero | Succ Nat
+
+alg ZeroF = 0
+alg SuccF a = a 
+
+fmap f ZeroF = ZeroF
+fmap f (SuccF a) = SuccF (f a)
+
+
+
+
+
+Fix NatF ~= Fix ZeroF | Fix( NatF (Fix NatF) )
+
+alg Succ ( Succ Zero ) = 2

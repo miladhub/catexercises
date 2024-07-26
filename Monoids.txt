@@ -16,6 +16,8 @@ Monad
 Join: T(T a) -> T a
 Return: a -> T a == Id a -> T a
 
+The component of the second natural transformation, return, goes from a to T a; in general, a component goes from F a to G a, but if F is Id, then F a = a, so we get a -> G a, and in our case, a -> T a
+
 Categorical monoid
 
 u: T . T -> T
